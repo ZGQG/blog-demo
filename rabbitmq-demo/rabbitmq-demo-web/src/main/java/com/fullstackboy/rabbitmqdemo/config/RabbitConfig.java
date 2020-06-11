@@ -81,23 +81,23 @@ public class RabbitConfig {
         return new Queue(QueueConstants.QUEUE_NAME, true);
     }
 
-    /**
-     * 设置交换机，类型为 direct
-     *
-     * @return DirectExchange
-     */
-    @Bean
-    DirectExchange myExchange() {
-        return new DirectExchange(QueueConstants.QUEUE_EXCHANGE_NAME, true, false);
-    }
-
-    /**
-     * 绑定：将交换机和队列绑定，并设置路由匹配键
-     *
-     * @return Binding
-     */
-    @Bean
-    Binding queueBinding() {
-        return BindingBuilder.bind(myQueue()).to(myExchange()).with(QueueConstants.QUEUE_ROUTING_KEY_NAME);
-    }
+//    /**
+//     * 设置交换机，类型为 direct
+//     *
+//     * @return DirectExchange
+//     */
+//    @Bean
+//    DirectExchange myExchange() {
+//        return new DirectExchange(QueueConstants.QUEUE_EXCHANGE_NAME, true, false);
+//    }
+//
+//    /**
+//     * 绑定：将交换机和队列绑定，并设置路由匹配键
+//     *
+//     * @return Binding
+//     */
+//    @Bean
+//    Binding queueBinding() {
+//        return BindingBuilder.bind(myQueue()).to(myExchange()).with(QueueConstants.QUEUE_ROUTING_KEY_NAME);
+//    }
 }
