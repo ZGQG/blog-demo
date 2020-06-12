@@ -25,10 +25,8 @@ import java.util.concurrent.TimeUnit;
 @Data
 @Component
 public class Consumer2Controller {
-    @RabbitListener(queues = {QueueConstants.QUEUE_NAME})
+    @RabbitListener(queues = {QueueConstants.QUEUE_NAME}, containerFactory = "customContainerFactory")
     public void work(Message message, Channel channel) throws IOException {
-        // 设置当前信道最大预获取消息量为1
-        channel.basicQos(1);
         // 获取消息
         String info = (String) message.getPayload();
         log.info("消费者B获取到消息: {}", info);
