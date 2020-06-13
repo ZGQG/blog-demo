@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 @Data
 @Component
 public class Consumer1Controller {
-    @RabbitListener(queues = {QueueConstants.QUEUE_NAME}, containerFactory = "customContainerFactory")
+    @RabbitListener(queues = {QueueConstants.QUEUE_NAME})
     public void work(Message message, Channel channel) throws IOException {
         // 获取消息
         String info = (String) message.getPayload();
